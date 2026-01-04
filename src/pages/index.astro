@@ -1,16 +1,513 @@
 ---
-
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Track SaaS contracts and renewals without spreadsheets. Built for small IT teams." />
+  <title>Chrima - Track SaaS Contracts and Renewals</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --text-muted: #9ca3af;
+      --bg: #ffffff;
+      --bg-gray: #f9fafb;
+      --bg-light: #f3f4f6;
+      --border: #e5e7eb;
+      --success: #059669;
+      --error: #dc2626;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Problem/Outcome Section */
+    .problem-outcome {
+      padding: 5rem 0;
+      background: var(--bg-gray);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-column {
+      background: var(--bg);
+      padding: 2.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .section-column h3 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .section-column ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .section-column li {
+      color: var(--text);
+      line-height: 1.7;
+      padding-left: 1.75rem;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .section-column li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    /* Product Proof */
+    .product-proof {
+      padding: 5rem 0;
+    }
+
+    .product-proof h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .screenshot-container {
+      margin-bottom: 3rem;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Who It's For */
+    .who-section {
+      padding: 5rem 0;
+      background: var(--bg-gray);
+    }
+
+    .who-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .who-box {
+      padding: 2.5rem;
+      border-radius: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .who-box h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .who-box.for {
+      border-left: 4px solid var(--success);
+    }
+
+    .who-box.not-for {
+      border-left: 4px solid var(--error);
+    }
+
+    .who-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .who-box li {
+      line-height: 1.7;
+      padding-left: 2rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .who-box.for li {
+      color: var(--text);
+    }
+
+    .who-box.for li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .who-box.not-for li {
+      color: var(--text-light);
+    }
+
+    .who-box.not-for li::before {
+      content: "×";
+      position: absolute;
+      left: 0.25rem;
+      color: var(--error);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .final-cta p {
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1.125rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      background: var(--bg-gray);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-content {
+      color: var(--text-light);
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero {
+        padding: 3.5rem 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .problem-outcome,
+      .product-proof,
+      .who-section,
+      .final-cta {
+        padding: 3.5rem 0;
+      }
+
+      .section-grid,
+      .who-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .section-column {
+        padding: 2rem;
+      }
+
+      .final-cta h2 {
+        font-size: 1.75rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Chrima</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Track SaaS contracts and renewals without spreadsheets</h1>
+      <p>
+        Built for small IT teams who want visibility without enterprise ITAM complexity.
+      </p>
+      <a href="https://forms.gle/LxvQRAiuNHkTg35y5" class="cta-button" target="_blank" rel="noopener noreferrer">Request early access</a>
+    </div>
+  </section>
+
+  <!-- Problem → Outcome Section -->
+  <section class="problem-outcome">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-column">
+          <h3>The Problem</h3>
+          <ul>
+            <li>Renewal dates spread across emails and Excel</li>
+            <li>No clear owner per vendor</li>
+            <li>Missed renewals and wasted licenses</li>
+            <li>Poor visibility into active contracts</li>
+          </ul>
+        </div>
+        <div class="section-column">
+          <h3>The Outcome</h3>
+          <ul>
+            <li>One place for all contracts</li>
+            <li>Clear ownership per vendor</li>
+            <li>Renewal reminders before it's too late</li>
+            <li>Complete visibility with minimal setup</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Proof -->
+  <section class="product-proof">
+    <div class="container">
+      <h2>The product exists</h2>
+      <div class="screenshot-container">
+        <img src="/dashboard-screenshot.png" alt="Chrima Dashboard - Overview of vendors and subscriptions" class="screenshot" />
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <h4>Vendor Management</h4>
+          <p>Organize all your SaaS vendors in one place with search and filtering</p>
+        </div>
+        <div class="feature-item">
+          <h4>Contract Storage</h4>
+          <p>Upload and securely store contracts and documents for each vendor</p>
+        </div>
+        <div class="feature-item">
+          <h4>Renewal Tracking</h4>
+          <p>Visual calendar showing all upcoming renewals to stay ahead</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="who-section">
+    <div class="container">
+      <h2>Is this for you?</h2>
+      <div class="who-grid">
+        <div class="who-box for">
+          <h3>This is for you if:</h3>
+          <ul>
+            <li>You're an IT manager or lead at a small/mid-sized company</li>
+            <li>You manage 10-100 SaaS vendors</li>
+            <li>You're tired of spreadsheets and missed renewals</li>
+            <li>You want something simple, not enterprise ITAM</li>
+          </ul>
+        </div>
+        <div class="who-box not-for">
+          <h3>This is not for you if:</h3>
+          <ul>
+            <li>You need complex procurement workflows</li>
+            <li>You require enterprise-grade ITAM features</li>
+            <li>You have dedicated procurement teams</li>
+            <li>You prefer to keep using spreadsheets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta" id="access">
+    <div class="container">
+      <h2>Request early access</h2>
+      <p>We're onboarding teams in small batches. No long-term commitment required.</p>
+      <a href="https://forms.gle/LxvQRAiuNHkTg35y5" class="cta-button" target="_blank" rel="noopener noreferrer">Join the beta</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2026 Chrima</p>
+        <!-- <ul class="footer-links">
+          <li><a href="mailto:hello@chrima.com">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
