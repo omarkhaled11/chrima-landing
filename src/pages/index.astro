@@ -351,6 +351,19 @@
     .footer-content {
       color: var(--text-light);
       font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-badge {
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .footer-badge:hover {
+      opacity: 0.8;
     }
 
     .footer-links {
@@ -553,6 +566,9 @@
   <footer>
     <div class="container">
       <div class="footer-content">
+        <a href="https://smollaunch.com" target="_blank" rel="noopener" class="footer-badge">
+          <img src="https://smollaunch.com/badges/featured.svg" alt="Featured on Smol Launch" width="250" height="60" />
+        </a>
         <p>&copy; 2026 Chrima</p>
         <!-- <ul class="footer-links">
           <li><a href="mailto:hello@chrima.com">Contact</a></li>
