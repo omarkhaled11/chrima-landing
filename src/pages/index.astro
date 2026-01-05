@@ -357,6 +357,14 @@
       gap: 1.5rem;
     }
 
+    .footer-badges {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .footer-badge {
       display: inline-block;
       transition: opacity 0.2s;
@@ -566,9 +574,17 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <a href="https://smollaunch.com" target="_blank" rel="noopener" class="footer-badge">
-          <img src="https://smollaunch.com/badges/featured.svg" alt="Featured on Smol Launch" width="250" height="60" />
-        </a>
+        <div class="footer-badges">
+          <a href="https://launchigniter.com/product/chrima?ref=badge-chrima" target="_blank" class="footer-badge">
+            <img src="https://launchigniter.com/api/badge/chrima?theme=dark" alt="Featured on LaunchIgniter" width="212" height="55" />
+          </a>
+          <a href="https://smollaunch.com" target="_blank" rel="noopener" class="footer-badge">
+            <img src="https://smollaunch.com/badges/featured.svg" alt="Featured on Smol Launch" width="250" height="60" />
+          </a>
+          <a href="https://peerpush.net/p/chrima" target="_blank" rel="noopener" class="footer-badge">
+            <img src="https://peerpush.net/p/chrima/badge.png" alt="Chrima badge" width="230" height="55" />
+          </a>
+        </div>
         <p>&copy; 2026 Chrima</p>
         <!-- <ul class="footer-links">
           <li><a href="mailto:hello@chrima.com">Contact</a></li>
