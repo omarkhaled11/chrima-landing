@@ -340,10 +340,52 @@
       font-size: 1.125rem;
     }
 
+    /* FAQ Section */
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--bg-gray);
+    }
+
+    .faq-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .faq-question {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
     /* Footer */
     footer {
       padding: 3rem 0;
-      background: var(--bg-gray);
+      background: var(--bg);
       border-top: 1px solid var(--border);
       text-align: center;
     }
@@ -414,8 +456,13 @@
       .problem-outcome,
       .product-proof,
       .who-section,
-      .final-cta {
+      .final-cta,
+      .faq-section {
         padding: 3.5rem 0;
+      }
+
+      .faq-item {
+        padding: 1.5rem;
       }
 
       .section-grid,
@@ -460,7 +507,62 @@
         "ratingValue": "5",
         "ratingCount": "1"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is Chrima different from enterprise ITAM tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chrima is built specifically for vendor management for small business and mid-sized IT teams (10-100 vendors). Unlike enterprise ITAM tools that require complex setup and training, Chrima focuses on what small teams actually need: simple contract tracking, renewal management, and cost visibility. No procurement workflows, no enterprise complexity—just straightforward SaaS contract management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Chrima if I only have 10-20 vendors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Chrima is designed for small business vendor management, working perfectly for teams managing 10-100 SaaS vendors. Whether you have 10 vendors or 100, you get the same simple interface for tracking renewals and managing contracts without spreadsheet chaos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need technical knowledge to use Chrima?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No technical knowledge required. If you can use spreadsheets, you can use Chrima. Our SaaS renewal tracking tool is designed for IT managers who want a straightforward solution without complexity. Setup takes minutes, not weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Chrima help prevent missed renewals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chrima provides a visual dashboard showing all upcoming renewals in one place. Instead of tracking renewal dates across emails and spreadsheets, you see exactly which subscriptions are renewing and when. Our renewal tracking system helps small IT teams stay ahead of auto-renewals and avoid surprise charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file formats can I upload for contracts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can upload PDF files (up to 10MB) and images in PNG or JPG format (up to 5MB). Store up to 20 contract files per vendor, with secure cloud storage for all your SaaS contracts and vendor documents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Chrima a spreadsheet alternative for vendor tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Chrima replaces scattered spreadsheets with a dedicated platform for vendor management. Instead of maintaining multiple Excel files for contracts, costs, and renewals, everything lives in one place with better visibility and automatic reminders."
+          }
+        }
+      ]
     }
+  ]
   </script>
 </head>
 <body>
@@ -568,6 +670,56 @@
       <h2>Request early access</h2>
       <p>We're onboarding teams in small batches. No long-term commitment required.</p>
       <a href="https://forms.gle/LxvQRAiuNHkTg35y5" class="cta-button" target="_blank" rel="noopener noreferrer">Join the beta</a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">How is Chrima different from enterprise ITAM tools?</h3>
+          <p class="faq-answer">
+            Chrima is built specifically for vendor management for small business and mid-sized IT teams (10-100 vendors). Unlike enterprise ITAM tools that require complex setup and training, Chrima focuses on what small teams actually need: simple contract tracking, renewal management, and cost visibility. No procurement workflows, no enterprise complexity—just straightforward SaaS contract management.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can I use Chrima if I only have 10-20 vendors?</h3>
+          <p class="faq-answer">
+            Absolutely! Chrima is designed for small business vendor management, working perfectly for teams managing 10-100 SaaS vendors. Whether you have 10 vendors or 100, you get the same simple interface for tracking renewals and managing contracts without spreadsheet chaos.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Do I need technical knowledge to use Chrima?</h3>
+          <p class="faq-answer">
+            No technical knowledge required. If you can use spreadsheets, you can use Chrima. Our SaaS renewal tracking tool is designed for IT managers who want a straightforward solution without complexity. Setup takes minutes, not weeks.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How does Chrima help prevent missed renewals?</h3>
+          <p class="faq-answer">
+            Chrima provides a visual dashboard showing all upcoming renewals in one place. Instead of tracking renewal dates across emails and spreadsheets, you see exactly which subscriptions are renewing and when. Our renewal tracking system helps small IT teams stay ahead of auto-renewals and avoid surprise charges.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What file formats can I upload for contracts?</h3>
+          <p class="faq-answer">
+            You can upload PDF files (up to 10MB) and images in PNG or JPG format (up to 5MB). Store up to 20 contract files per vendor, with secure cloud storage for all your SaaS contracts and vendor documents.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Is Chrima a spreadsheet alternative for vendor tracking?</h3>
+          <p class="faq-answer">
+            Yes! Chrima replaces scattered spreadsheets with a dedicated platform for vendor management. Instead of maintaining multiple Excel files for contracts, costs, and renewals, everything lives in one place with better visibility and automatic reminders.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
   </main>
